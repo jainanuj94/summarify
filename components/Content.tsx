@@ -7,7 +7,6 @@ import {useCopilotChat, useCopilotReadable} from "@copilotkit/react-core";
 import {MessageStatusCode, Role, TextMessage} from "@copilotkit/runtime-client-gql";
 import {Input} from "@/components/ui/input";
 import {useToast} from "@/hooks/use-toast";
-import {x as MessageStatus} from "@copilotkit/runtime-client-gql/dist/graphql-07333d60";
 
 const summaryContent =  {
     SUMMERIFY:"Summerize the contents in a professional tone",
@@ -49,6 +48,8 @@ const Content = () => {
 
     useEffect(() => {
         if (visibleMessages && visibleMessages.length > 0) {
+            // eslint-disable-next-line
+            // @ts-expect-error
             const {content, status, role} = visibleMessages[visibleMessages.length - 1];
             if (role === "assistant"){
                 setSummerizedContent(content)
@@ -101,6 +102,8 @@ const Content = () => {
         setSummerizedContent('Summerifying....')
         await appendMessage(
             new TextMessage({
+                // eslint-disable-next-line
+                // @ts-expect-error
                 content: summaryContent[summaryType],
                 role: Role.User,
             })

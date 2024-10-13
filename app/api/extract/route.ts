@@ -19,8 +19,8 @@ export async function POST(req: Request) {
             mainContent = $.text().trim()
         }
         return NextResponse.json({content: JSON.stringify(mainContent)});
-    } catch (error: never) {
-        console.log("failed");
+    } catch (error) {
+        console.error("Unable to read the page", error)
         return NextResponse.json({error: 'Failed to extract content'}, {status: 500});
     }
 }
