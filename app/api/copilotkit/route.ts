@@ -13,7 +13,7 @@ const llmAdapter = new OpenAIAdapter({
 const runtime = new CopilotRuntime();
 
 export const POST = async (req: NextRequest) => {
-    const {handleRequest} = copilotRuntimeNextJSAppRouterEndpoint({
+    const { handleRequest} = copilotRuntimeNextJSAppRouterEndpoint({
         runtime: runtime,
         serviceAdapter: llmAdapter,
         endpoint: '/api/copilotkit'

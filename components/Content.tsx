@@ -90,6 +90,13 @@ const Content = () => {
     };
 
     const handleSummerize = async (summaryType: string) => {
+        if (!(!!content)) {
+            toast({
+                title: "Please add content to summarify.",
+                description: "Please type some content to summerize.",
+            })
+            return;
+        }
         setLoading(true)
         setSummerizedContent('Summerifying....')
         await appendMessage(
