@@ -33,6 +33,7 @@ export default function RootLayout({
         >
         <CopilotKit runtimeUrl="/api/copilotkit">
             {children}
+            <Analytics/>
         </CopilotKit>
         </body>
         </html>
